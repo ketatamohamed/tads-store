@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart</title>
+  <link rel="stylesheet" href="tejrab.css">
+</head>
+
+<body>
+    
+  <div class="cart-item">
+  <img src="watch1.jpg" alt="Watch">
+  <div class="item-details">
+    <h4>portes clefs </h4>
+    <p class="price">TND .85 <span class="old-price">TND 9.59</span></p>
+    <div class="quantity">
+      <button onclick="updateQuantity(-1, 0)">-</button>
+      <span id="qty-0">1</span>
+      <button onclick="updateQuantity(1, 0)">+</button>
+    </div>
+  </div>
+  <button class="remove-btn" onclick="removeItem(0)">🗑</button>
+</div>
+    <!-- Summary -->
+    <div class="summary">
+      <h3>Summary</h3>
+      <p>Subtotal: <span id="subtotal">TND 24.30</span></p>
+      <p>Shipment: <span id="shipment">TND 6.00</span></p>
+      <p>Discounts: <span id="discounts">- TND 2.00</span></p>
+      <h4>Total: <span id="total">TND 28.30</span></h4>
+      <button class="checkout-btn">Continue</button>
+    </div>
+  </div>
+
+  <script src="cartcreation.js"></script>
+  <a href="test3.html" class="btn outline">← Back to Home</a>
+  <div class="cart-list"></div>
+
+</body>
+</html>
