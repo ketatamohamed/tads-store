@@ -62,13 +62,16 @@ window.addToCart = function(button) {
   const name = productDiv.querySelector(".product-name").textContent;
   const price = parseFloat(productDiv.querySelector(".product-price").textContent);
   const oldPrice = parseFloat(productDiv.querySelector(".product-old-price").textContent);
-  const image = productDiv.querySelector(".product-image").getAttribute("src");
+  const imageSrc = productDiv.querySelector(".product-image").getAttribute("src");
+
+  // ✅ Make sure the image is a full URL
+  const image = new URL(imageSrc, window.location.origin).href;
 
   const product = {
     name,
     price,
     oldPrice,
-    image,
+    image,      // full absolute URL instead of just filename
     quantity: 1
   };
 
@@ -83,12 +86,13 @@ window.addToCart = function(button) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   window.location.href = "cart.html";
-}
+};
+
 
 
 window.sendEmail = function () {
   emailjs.init("EeQfYEqajo9-uX59A"); // Replace with your real public key
-
+  
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (cart.length === 0) {
@@ -96,20 +100,36 @@ window.sendEmail = function () {
     return;
   }
 
-  let message = "🛒 Shopping List:\n";
+  const buyerName = prompt("Please enter your name:");
+  if (!buyerName) {
+    alert("You must enter your name to place the order.");
+    return;
+  }
+
+  // Build HTML message with buyer name at the top
+  let message = `<p>👤 Buyer: <strong>${buyerName}</strong></p>`;
+  message += `<p>🛒 <strong>Shopping List:</strong></p>`;
+
   cart.forEach(item => {
-    message += `• ${item.image} ${item.name} x ${item.quantity} ${item.price}TND
-    ${item.price * item.quantity}TND\n`;
+    message += `
+      <div style="margin-bottom:10px;">
+        <img src="${item.image}" alt="${item.name}" width="80" style="vertical-align:middle; margin-right:10px;" />
+        <span><strong>${item.name}</strong> x ${item.quantity} @ ${item.price} TND 
+        = <strong>${item.price * item.quantity} TND</strong></span>
+      </div>
+    `;
   });
 
   emailjs.send("service_b64w9vy", "template_ugtn2z9", {
     message: message,
-    to_name: "Mohamed Ketata",
+    to_name: buyerName,
     reply_to: "tadsvicetresorier@gmail.com"
-  }).then(response => {
+  })
+  .then(response => {
     alert("✅ Email sent successfully!");
     console.log("SUCCESS", response);
-  }).catch(error => {
+  })
+  .catch(error => {
     alert("❌ Failed to send email: " + error.text);
     console.error("ERROR", error);
   });

@@ -215,12 +215,12 @@ body {
 
 .btn.outline {
   border: 1px solid #fff;
-  color: #fff;
+  color: #1402b8c9;
 }
 
 .btn.outline:hover {
   background-color: white;
-  color: #000;
+  color: #810808;
 }
 .product-card-link {
   text-decoration: none;
