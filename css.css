@@ -117,6 +117,15 @@
     width: fit-content;
       margin: 20px auto; /* center horizontally */
   }
+.logo {
+  position: fixed;   /* stays fixed top-left */
+  top: 15px;
+  left: 15px;
+  height: 120px;     /* 2x bigger */
+  width: auto;
+  z-index: 2000;
+}
+
 
   .nav-links {
     display: flex;
