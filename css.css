@@ -392,3 +392,73 @@
     font-size: 20px;
   }
 }
+
+
+/* Phone only responsive adjustments */
+@media (max-width: 768px) {
+  /* Navbar becomes vertical */
+  .navbar {
+    flex-direction: column;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Logo smaller */
+  .logo {
+    height: 60px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+
+  /* Hero section stacks vertically */
+  .hero-header {
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .overlay {
+    max-width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  .overlay h1 {
+    font-size: 24px;
+  }
+
+  /* Product cards stack in one column */
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .product-card {
+    width: 100%;
+  }
+
+  /* Buttons and navigation links scale appropriately */
+  .btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  .nav-links a {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .logo {
+    height: 50px;
+  }
+  .overlay h1 {
+    font-size: 20px;
+  }
+}
