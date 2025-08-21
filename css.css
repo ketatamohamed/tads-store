@@ -17,11 +17,11 @@
   }
 
   .product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
 
   .product-card {
     width: 220px;
