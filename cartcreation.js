@@ -65,7 +65,6 @@ window.addToCart = function(button) {
 
   const name = productDiv.querySelector(".product-name").textContent;
   const price = parseFloat(productDiv.querySelector(".product-price").textContent);
-  const oldPrice = parseFloat(productDiv.querySelector(".product-old-price").textContent);
   const imageSrc = productDiv.querySelector(".product-image").getAttribute("src");
 
   // ✅ Make sure the image is a full URL
@@ -74,7 +73,6 @@ window.addToCart = function(button) {
   const product = {
     name,
     price,
-    oldPrice,
     image,      // full absolute URL instead of just filename
     quantity: 1
   };
