@@ -46,7 +46,27 @@
     transform: scale(1.02);
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   }
-
+.product-card.coming-soon {
+  position: relative;
+  filter: blur(2px) grayscale(80%); /* blur + fade the card */
+  opacity: 0.6;
+  pointer-events: none; /* disable clicking */
+}
+.product-card.coming-soon::after {
+  content: "COMING SOON";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.7);
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  filter: none;      /* keeps text sharp */
+  opacity: 1;        /* fully visible */
+}
   .author {
     font-size: 12px;
     color: #777;
