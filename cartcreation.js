@@ -10,7 +10,11 @@ function renderCart() {
         <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto;">
         <div class="item-details">
           <h4>${item.name}</h4>
-          <p class="price">TND ${item.price.toFixed(2)} <span class="old-price">TND ${item.oldPrice.toFixed(2)}</span></p>
+          <p class="price">
+  TND ${(item.price ?? 0).toFixed(2)} 
+  <span class="old-price">TND ${(item.oldPrice ?? 0).toFixed(2)}</span>
+</p>
+
           <div class="quantity">
             <button onclick="updateQuantity(-1, ${index})">-</button>
             <span id="qty-${index}">${item.quantity}</span>
