@@ -1,59 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Design Anthology</title>
-  <link rel="stylesheet" href="css.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body class="pins-page">
-  <div class="cart-button">
-  <a href="cart.html">🛒</a>
-</div>
-  </div>
+export let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  <header class="hero-header">
-    <div class="overlay">
-      <h1>Design Anthology</h1>
-      <p>Your go-to dental magazine for the latest trends and insights</p>
-    </div>
-  </header>
+function renderCart() {
+  const cartList = document.querySelector(".cart-list");
+  cartList.innerHTML = "";
 
-  <main class="magazine-content">
-    <section>
-      <h2>PINS</h2>
-      <p>Express your style with our fun tooth pins – each one a unique character, from pirate to worker, made to make you smile</p>
-    </section>
-<div class="product-card"> 
-    <div class="product">
-  <img src="stylo\stylo1.jpeg" alt="stylo dent" class="product-image">
-  <h4 class="product-name">stylo dent</h4>
-  <p class="product-price">6dt</p>
-  <p class="product-old-price">8dt</p>
-  <button onclick="addToCart(this)">Add to Cart</button>
-  </div>
-</div>
-    
-   <section>
-  <h2>order</h2>
-  <div class="button-group">
-    <a href="https://www.facebook.com/TADStunisie/" target="_blank" class="btn black">Visit Us on Facebook</a>
-    <a href="index.html" class="btn outline">← Back to Home</a>
-    <a href="cart.html" class="btn cart">Go to Cart</a>
-  </div>
-</section>
+  cart.forEach((item, index) => {
+    cartList.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto;">
+        <div class="item-details">
+          <h4>${item.name}</h4>
+          <p class="price">TND ${item.price.toFixed(2)} <span class="old-price">TND ${item.oldPrice.toFixed(2)}</span></p>
+          <div class="quantity">
+            <button onclick="updateQuantity(-1, ${index})">-</button>
+            <span id="qty-${index}">${item.quantity}</span>
+            <button onclick="updateQuantity(1, ${index})">+</button>
+          </div>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})">🗑</button>
+      </div>
+    `;
+  });
+
+  updateSummary();
+}
+
+window.updateQuantity = function(change, index) {
+  cart[index].quantity += change;
+  if (cart[index].quantity < 1) cart[index].quantity = 1;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+window.removeItem = function( index){
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function updateSummary() {
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += item.price * item.quantity;
+  });
+
+  const shipment = 0.00;
+  const discount = 0.00;
+  const total = subtotal + shipment - discount;
+
+  if (document.getElementById("subtotal")) {
+    document.getElementById("subtotal").textContent = `TND ${subtotal.toFixed(2)}`;
+    document.getElementById("total").textContent = `TND ${total.toFixed(2)}`;
+  }
+}
+
+if (document.querySelector(".cart-list")) {
+  renderCart();
+}
+window.addToCart = function(button) {
+  const productDiv = button.closest(".product");
+
+  const name = productDiv.querySelector(".product-name").textContent;
+  const price = parseFloat(productDiv.querySelector(".product-price").textContent);
+  const oldPrice = parseFloat(productDiv.querySelector(".product-old-price").textContent);
+  const imageSrc = productDiv.querySelector(".product-image").getAttribute("src");
+
+  // ✅ Make sure the image is a full URL
+  const image = new URL(imageSrc, window.location.origin).href;
+
+  const product = {
+    name,
+    price,
+    oldPrice,
+    image,      // full absolute URL instead of just filename
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  window.location.href = "cart.html";
+};
 
 
-<script type="module" src="cartcreation.js"></script>
 
+window.sendEmail = function () {
+  emailjs.init("EeQfYEqajo9-uX59A"); // Replace with your real public key
+  
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
 
+  const buyerName = prompt("Please enter your name:");
+  if (!buyerName) {
+    alert("You must enter your name to place the order.");
+    return;
+  }
 
+  // Build HTML message with buyer name at the top
+  let message = `<p>👤 Buyer: <strong>${buyerName}</strong></p>`;
+  message += `<p>🛒 <strong>Shopping List:</strong></p>`;
 
+  cart.forEach(item => {
+    message += `
+      <div style="margin-bottom:10px;">
+        <img src="${item.image}" alt="${item.name}" width="80" style="vertical-align:middle; margin-right:10px;" />
+        <span><strong>${item.name}</strong> x ${item.quantity} @ ${item.price} TND 
+        = <strong>${item.price * item.quantity} TND</strong></span>
+      </div>
+    `;
+  });
 
-
-
-
-
-</body>
-</html>
+  emailjs.send("service_b64w9vy", "template_ugtn2z9", {
+    message: message,
+    to_name: buyerName,
+    reply_to: "tadsvicetresorier@gmail.com"
+  })
+  .then(response => {
+    alert("✅ Email sent successfully!");
+    console.log("SUCCESS", response);
+  })
+  .catch(error => {
+    alert("❌ Failed to send email: " + error.text);
+    console.error("ERROR", error);
+  });
+};
