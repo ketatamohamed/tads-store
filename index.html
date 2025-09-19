@@ -16,115 +16,118 @@
   <div class="cart-button">
   <a href="cart.html">🛒</a>
 </div>
-  <!-- Top Navigation -->
-   <img src="TADS Logo.png" alt="TADS Logo" class="logo">
+<!-- Top Navigation -->
+<img src="TADS Logo.png" alt="TADS Logo" class="logo">
 <nav class="navbar">
   <div class="nav-links">
     <a href="https://tads.com.tn/a-propos/">About</a>
-    <a href="https://tads.com.tn/nos-evenements/">events</a>
+    <a href="https://tads.com.tn/nos-evenements/">Events</a>
     <a href="https://tads.com.tn/">Tads</a>
     <a href="https://tads.com.tn/contact/">Contacts</a>
   </div>
 </nav>
 
-
 <!-- Hero Section -->
-<header class="hero-header">
+<section class="hero">
   <div class="overlay">
-    <h1>tads store</h1>
+    <h1>Welcome</h1>
     <div class="hero-buttons">
-      <a href="https://tads.com.tn/" class="btn filled">Services</a>
-      <a href="https://tads.com.tn/contact/" class="btn outline">Contact</a>
+      <a href="#" class="btn filled">Shop Now</a>
+      <a href="#" class="btn outline">Learn More</a>
     </div>
   </div>
-</header>
+</section>
+
+<script>
+const images = [
+  "Gemini_Generated_Image_qusrrtqusrrtqusr.png",
+  "background.png",
+  "Gemini_Generated_Image_1bo4wq1bo4wq1bo4.png",
+  "plateau back ground.png",
+  "Gemini_Generated_Image_qusrrtqusrrtqusr.png"
+];
+let current = 0;
+const hero = document.querySelector(".hero");
+
+function changeBackground() {
+  hero.style.backgroundImage = `url(${images[current]})`;
+  current = (current + 1) % images.length;
+}
+
+changeBackground(); // first image
+setInterval(changeBackground, 10000); // change every 10s
+</script>
+
 
 
 
   <h2 class="title">Tads Store</h2>
+
+<div class="product-grid">
   <a href="plateau.html" class="product-card-link">
-      <div class="product-card">
+    <div class="product-card">
       <img src="plateau.jpeg" alt="mirroire" />
-      <p class="author">Magazine</p>
       <h3>plateau d'examen</h3>
       <p class="price"><span class="new">37dt</span> <span class="old">45dt</span></p>
-     
-      </div>
-    </a>
-    <a href="badges personnalisé.html" class="product-card-link">
-  <div class="product-card">
-    <img src="badges tads.jpeg" alt="badges per" />
-    <p class="author">Magazine</p>
-    <h3>badges personnalisé</h3>
-    <p class="price"><span class="new">6.5dt</span> <span class="old">8dt</span></p>
-    
-  </div>
-</a>
-  <div class="product-grid">
-    <a href="pins.html" class="product-card-link">
-      <div class="product-card">
-      <img src="pins\pins4.jpeg" alt="pins" />
-      <p class="author">Magazine</p>
+    </div>
+  </a>
+
+  <a href="badges personnalisé.html" class="product-card-link">
+    <div class="product-card">
+      <img src="badges tads.jpeg" alt="badges per" />
+      <h3>badges personnalisé</h3>
+      <p class="price"><span class="new">6.5dt</span> <span class="old">8dt</span></p>
+    </div>
+  </a>
+
+  <a href="pins.html" class="product-card-link">
+    <div class="product-card">
+      <img src="pins/pins4.jpeg" alt="pins" />
       <h3>pins</h3>
       <p class="price"><span class="new">5dt</span> <span class="old">7dt</span></p>
-      </div>
-    </a>
-</div>
-    <div class="product-grid">
-    <a href="portes cles.html" class="product-card-link">
-      <div class="product-card">
-      <img src="porte clé\porte clé(4).png" alt="portes clefs" />
-      <p class="author">Alabaste</p>
-      <h3>portes clefs </h3>
+    </div>
+  </a>
+
+  <a href="portes cles.html" class="product-card-link">
+    <div class="product-card">
+      <img src="porte clé/porte clé(4).png" alt="portes clefs" />
+      <h3>portes clefs</h3>
       <p class="price"><span class="new">3dt</span> <span class="old">5dt</span></p>
-      </div>
-    </a>
+    </div>
+  </a>
 
-
-   <a href="trousse.html" class="product-card-link">
-      <div class="product-card">
-      <img src="trousse\trousse (1).png" alt="trousse" />
-      <p class="author">Magazine</p>
+  <a href="trousse.html" class="product-card-link">
+    <div class="product-card">
+      <img src="trousse/trousse (1).png" alt="trousse" />
       <h3>trousse</h3>
       <p class="price"><span class="new">5dt</span> <span class="old">7dt</span></p>
-      
-      
-      </div>
-    </a>
+    </div>
+  </a>
 
-    <a href="stylo.html" class="product-card-link">
-      <div class="product-card">
-      <img src="stylo\stylo1.jpeg" alt="stylo" />
-      <p class="author">Magazine</p>
+  <a href="stylo.html" class="product-card-link">
+    <div class="product-card">
+      <img src="stylo/stylo1.jpeg" alt="stylo" />
       <h3>stylo 1</h3>
-      <p class="price"><span class="new">6dtdt</span> <span class="old">7dt</span></p>
-      
-      
-      </div>
-    </a>
-<a href="autocollant.html" class="product-card-link">
-      <div class="product-card">
+      <p class="price"><span class="new">6dt</span> <span class="old">7dt</span></p>
+    </div>
+  </a>
+
+  <a href="autocollant.html" class="product-card-link">
+    <div class="product-card">
       <img src="autocollant.png" alt="autocollant" />
-      <p class="author">Magazine</p>
       <h3>autocollant</h3>
       <p class="price"><span class="new">7dt</span> <span class="old">8dt</span></p>
+    </div>
+  </a>
 
-
-      </div>
-    </a>
-    
-     
-    <div class="product-grid">
-    <a href="stickers.html" class="product-card-link">
-      <div class="product-card">
+  <a href="stickers.html" class="product-card-link">
+    <div class="product-card">
       <img src="stickers.png" alt="stickers" />
-      <p class="author">Magazine</p>
       <h3>stickers</h3>
       <p class="price"><span class="new">0.5dt</span> <span class="old">0.7dt</span></p>
-      </div>
-    </a>
-  </div>
-  </div>
+    </div>
+  </a>
+</div>
   
 
 
