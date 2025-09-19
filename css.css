@@ -559,3 +559,6 @@
     font-size: 20px;
   }
 }
+.product-old-price {
+  display: none; /* element is still in DOM, JS can access it */
+}
