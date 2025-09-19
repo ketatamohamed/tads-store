@@ -5,6 +5,9 @@ body {
   background-color: #ffffff;
   text-align: center;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Titles */
 .title {
