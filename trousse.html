@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <title>Design Anthology</title>
   <link rel="stylesheet" href="css.css" />
+  <link rel="icon" type="image/png" href="TADS Logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="trousse-page">
   <div class="cart-button">
   <a href="cart.html">🛒</a>
 </div>
@@ -23,9 +25,10 @@
       <h2>badges</h2>
       <p>This edition features articles on modern orthodontics, implantology, and patient communication strategies.</p>
     </section>
+    <div class="product-grid"> 
 <div class="product-card"> 
     <div class="product">
-  <img src="trousse\trousse (1).png" alt="trousse 1" class="product-image">
+  <img src="trousse\trousse (1).png" alt="trousse 1.2." class="product-image">
   <h4 class="product-name">trousse 1</h4>
   <p class="product-price">5dt</p>
   <p class="product-old-price">7dt</p>
@@ -34,39 +37,11 @@
 </div>
 
 
+
 <div class="product-card"> 
     <div class="product">
-  <img src="trousse\trousse (2).png" alt="trousse 2" class="product-image">
+  <img src="trousse\trousse (5).png" alt="trousse 5.1." class="product-image">
   <h4 class="product-name">trousse 2</h4>
-  <p class="product-price">5dt</p>
-  <p class="product-old-price">7dt</p>
-  <button onclick="addToCart(this)">Add to Cart</button>
-  </div>
-</div>
-  </div>
-<div class="product-card"> 
-    <div class="product">
-  <img src="trousse\trousse (3).png" alt="trousse 3" class="product-image">
-  <h4 class="product-name">trousse 3</h4>
-  <p class="product-price">5dt</p>
-  <p class="product-old-price">7dt</p>
-  <button onclick="addToCart(this)">Add to Cart</button>
-  </div>
-</div>
-  </div>
-  <div class="product-card"> 
-    <div class="product">
-  <img src="trousse\trousse (4).png" alt="trousse 4" class="product-image">
-  <h4 class="product-name">trousse 4</h4>
-  <p class="product-price">5dt</p>
-  <p class="product-old-price">7dt</p>
-  <button onclick="addToCart(this)">Add to Cart</button>
-  </div>
-</div>
-<div class="product-card"> 
-    <div class="product">
-  <img src="trousse\trousse (5).png" alt="trousse 5" class="product-image">
-  <h4 class="product-name">trousse 5</h4>
   <p class="product-price">5dt</p>
   <p class="product-old-price">7dt</p>
   <button onclick="addToCart(this)">Add to Cart</button>
@@ -79,7 +54,7 @@
   <h2>order</h2>
   <div class="button-group">
     <a href="https://www.facebook.com/TADStunisie/" target="_blank" class="btn black">Visit Us on Facebook</a>
-    <a href="test3.html" class="btn outline">← Back to Home</a>
+    <a href="index.html" class="btn outline">← Back to Home</a>
     <a href="cart.html" class="btn cart">Go to Cart</a>
   </div>
 </section>
@@ -87,13 +62,40 @@
 
 <script type="module" src="cartcreation.js"></script>
 
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h4>Faculté de Médecine Dentaire de Monastir</h4>
+      <p>5000 Monastir, Tunisie</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/"><img src="facebook.png" alt="Facebook"></a>
+        <a href="instagram.com"><img src="instagram.jpg" alt="Instagram"></a>
+      </div>
+    </div>
+    <div>
+      <h4>Contactez-nous</h4>
+     <p><a href="tel:+21651666331">+216 51 666 331</a></p>
+      <button class="contact-btn" onclick="window.open('https://wa.me/21651666331', '_blank')">
+  Contactez-nous
+</button>
 
-
-
-
-
-
-
+    </div>
+    <div>
+      <h4>Useful links</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="https://tads.com.tn/a-propos/">A Propos</a></li>
+        <li><a href="https://tads.com.tn/contact/">Contact</a></li>
+        <li><a href="https://tads.com.tn/nos-comites/">Nos Comités</a></li>
+        <li><a href="https://tads.com.tn/a-propos/#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IADS | All Rights Reserved </p>
+  </div>
+</footer>
+</section>
 
 
 </body>

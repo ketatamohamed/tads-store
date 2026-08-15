@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,95 +8,205 @@
   <meta charset="UTF-8" />
   <title>My Website</title>
   <link rel="stylesheet" href="css.css" />
-</head>
-
+  <link rel="icon" type="image/png" href="TADS Logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 </head>
 <body class="home-page">
-  <!-- Top Navigation -->
-<nav class="navbar">
-  <div class="nav-links">
-    <a href="https://tads.com.tn/a-propos/">About</a>
-    <a href="https://tads.com.tn/nos-evenements/">events</a>
-    <a href="https://tads.com.tn/temoignages/">Testimonials</a>
-    <a href="https://tads.com.tn/contact/">Contacts</a>
-  </div>
-</nav>
-
+  <div class="cart-button">
+  <a href="cart.html">🛒</a>
+</div>
+<!-- Top Navigation -->
+<img src="TADS Logo.png" alt="TADS Logo" class="logo">
+ <div class="page-bg" style="background-image: url('TADS Logo.png');"></div>
+    <header class="nav-wrap">
+      <div class="container nav">
+        <nav class="nav-links" id="navLinks">
+          <img src="TADS Logo.png" alt="TADS logo" class="logo" />
+          <a href="https://tads-d14eb.web.app/#hero">Accueil</a>
+          <a href="https://tads-d14eb.web.app/#about">Présentation TADS</a>
+          <a href="https://tads-d14eb.web.app/#about-iads">Présentation IADS</a>
+          <a href="https://tads-d14eb.web.app/#events">Événements</a>
+          <a href="https://tads-d14eb.web.app/#comities">Comités</a>
+          <a href="https://tads-d14eb.web.app/#news">Actualités</a>
+          <a href="https://tads-d14eb.web.app/#sponsors">Sponsors</a>
+          <a href="https://tads-d14eb.web.app/#contact">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
 
 <!-- Hero Section -->
-<header class="hero-header">
+<section class="hero">
   <div class="overlay">
-    <h1>tads store</h1>
+    <h1>Welcome</h1>
     <div class="hero-buttons">
-      <a href="https://tads.com.tn/services/" class="btn filled">Services</a>
-      <a href="https://tads.com.tn/contact/" class="btn outline">Contact</a>
+      <a href="#products" class="btn filled">Shop Now</a>
+
+      <a href="#footer" class="btn filled">learn more</a>
     </div>
   </div>
-</header>
+</section>
+
+<script>
+const images = [
+  "Gemini_Generated_Image_qusrrtqusrrtqusr.png",
+  "background.png",
+  "Gemini_Generated_Image_1bo4wq1bo4wq1bo4.png",
+  "plateau back ground.png",
+  "Gemini_Generated_Image_qusrrtqusrrtqusr.png"
+];
+let current = 0;
+const hero = document.querySelector(".hero");
+
+function changeBackground() {
+  hero.style.backgroundImage = `url(${images[current]})`;
+  current = (current + 1) % images.length;
+}
+
+changeBackground(); // first image
+setInterval(changeBackground, 10000); // change every 10s
+</script>
 
 
 
+<section id="products">
   <h2 class="title">Tads Store</h2>
-  <div class="product-grid">
-    <a href="pins.html" class="product-card-link">
-      <div class="product-card">
-      <img src="pins\pins4.jpeg" alt="pins" />
-      <p class="author">Magazine</p>
+
+<div class="product-grid">
+  <a href="plateau.html" class="product-card-link">
+    <div class="product-card">
+      <img src="plateau.jpeg" alt="mirroire" />
+      <h3>plateau d'examen</h3>
+      <p class="price"><span class="new">37dt</span> <span class="old">45dt</span></p>
+    </div>
+  </a>
+
+  <a href="badges personnalisé.html" class="product-card-link">
+    <div class="product-card">
+      <img src="badges tads.jpeg" alt="badges per" />
+      <h3>badges personnalisé</h3>
+      <p class="price"><span class="new">6.5dt</span> <span class="old">8dt</span></p>
+    </div>
+  </a>
+
+  <a href="pins.html" class="product-card-link">
+    <div class="product-card">
+      <img src="pins/pins4.jpeg" alt="pins" />
       <h3>pins</h3>
       <p class="price"><span class="new">5dt</span> <span class="old">7dt</span></p>
-      </div>
-    </a>
+    </div>
+  </a>
 
-    <a href="portes cles.html" class="product-card-link">
-      <div class="product-card">
-      <img src="porte clé\porte clé(1).png" alt="porte clé" />
-      <p class="author">Magazine</p>
-      <h3>porte clé</h3>
-      <p class="price"><span class="new">5dt</span> <span class="old">7dt</span></p>
-      
-      </div>
-    </a>
+  <a href="portes cles.html" class="product-card-link">
+    <div class="product-card">
+      <img src="porte clé/porte clé(4).png" alt="portes clefs" />
+      <h3>portes clefs</h3>
+      <p class="price"><span class="new">3dt</span> <span class="old">5dt</span></p>
+    </div>
+  </a>
 
-    <a href="trousse.html" class="product-card-link">
-      <div class="product-card">
-      <img src="trousse\trousse (1).png" alt="trousse" />
-      <p class="author">Magazine</p>
+  <a href="trousse.html" class="product-card-link">
+    <div class="product-card">
+      <img src="trousse/trousse (1).png" alt="trousse" />
       <h3>trousse</h3>
       <p class="price"><span class="new">5dt</span> <span class="old">7dt</span></p>
-      
-      
-      </div>
-    </a>
+    </div>
+  </a>
 
-    <a href="plateau.html" class="product-card-link">
-      <div class="product-card">
-      <img src="plateau.jpeg" alt="mirroire" />
-      <p class="author">Magazine</p>
-      <h3>plateau d'examen</h3>
-      <p class="price"><span class="new">35dt</span> <span class="old">45dt</span></p>
-     
-      </div>
-    </a>
-    <a href="badges personnalisé.html" class="product-card-link">
-      <div class="product-card">
-      <img src="badges.webp" alt="badges per" />
-      <p class="author">Magazine</p>
-      <h3>badges personnalisé</h3>
-      <p class="price"><span class="new">8dt</span> <span class="old">9dt</span></p>
-      
-      </div>
-    </a>
-    <div class="product-grid">
-    <a href=".az" class="product-card-link">
-      <div class="product-card">
+  <a href="stylo.html" class="product-card-link">
+    <div class="product-card">
+      <img src="stylo/stylo1.jpeg" alt="stylo" />
+      <h3>stylo 1</h3>
+      <p class="price"><span class="new">6dt</span> <span class="old">7dt</span></p>
+    </div>
+  </a>
+
+  <a href="autocollant.html" class="product-card-link">
+    <div class="product-card">
+      <img src="autocollant.png" alt="autocollant" />
+      <h3>autocollant</h3>
+      <p class="price"><span class="new">7dt</span> <span class="old">8dt</span></p>
+    </div>
+  </a>
+
+  <a href="stickers.html" class="product-card-link">
+    <div class="product-card">
       <img src="stickers.png" alt="stickers" />
-      <p class="author">Magazine</p>
       <h3>stickers</h3>
       <p class="price"><span class="new">0.5dt</span> <span class="old">0.7dt</span></p>
-      </div>
-    </a>
-  </div>
-  </div>
+    </div>
+  </a>
+</div>
+</section>
   
+
+
+  <section class="values">
+  <h2 class="values-title">Nos Valeurs</h2>
+  <div class="values-container">
+    <div class="value-card">
+      <i class="icon">📄</i>
+      <h3>Tunisie à l’échelle mondiale</h3>
+      <p>Rayonnement via l’IADS en tant que membre de l’IADS, nous représentons fièrement la Tunisie à l’échelle internationale, promouvant notre pays et favorisant les échanges interculturels avec des étudiants en odontologie du monde entier.</p>
+    </div>
+    <div class="value-card">
+      <i class="icon">💙</i>
+      <h3>Epanouissement de l’étudiant et accompagnement vers l’excellence</h3>
+      <p>Nous soutenons les étudiants dans leur parcours universitaire, les aidants à se développer académiquement, professionnellement et personnellement.</p>
+    </div>
+    <div class="value-card">
+      <i class="icon">🌱</i>
+      <h3>Green Dentistry et innovation technologique</h3>
+      <p>Nous sommes engagés dans la promotion de la Green Dentistry, en adoptant des pratiques respectueuses de l’environnement et en restant à la pointe des innovations technologiques.</p>
+    </div>
+    <div class="value-card">
+      <i class="icon">🗳️</i>
+      <h3>Voix équitable : Démocratie et respect des décisions</h3>
+      <p>Nous valorisons la démocratie au sein de notre association, en respectant les décisions prises collectivement dans le respect des principes de transparence, de diversité et de justice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+ <section id="footer">
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h4>Faculté de Médecine Dentaire de Monastir</h4>
+      <p>5000 Monastir, Tunisie</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/"><img src="facebook.png" alt="Facebook"></a>
+        <a href="instagram.com"><img src="instagram.jpg" alt="Instagram"></a>
+      </div>
+    </div>
+    <div>
+      <h4>Contactez-nous</h4>
+    <p><a href="tel:+21651666331">+216 51 666 331</a></p>
+      <button class="contact-btn" onclick="window.open('https://wa.me/21651666331', '_blank')">
+  Contactez-nous
+</button>
+
+    </div>
+    <div>
+      <h4>Useful links</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="https://tads.com.tn/a-propos/">A Propos</a></li>
+        <li><a href="https://tads.com.tn/contact/">Contact</a></li>
+        <li><a href="https://tads.com.tn/nos-comites/">Nos Comités</a></li>
+        <li><a href="https://tads.com.tn/a-propos/#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IADS | All Rights Reserved </p>
+  </div>
+</footer>
+</section>
+
+
 </body>
 </html>
