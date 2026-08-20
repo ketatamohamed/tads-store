@@ -64,6 +64,10 @@
 
 </div>
  <!-- CASE -->
+  <div class="case" onclick="openGallery(9)">
+    <img src="tablier\tablier 1.jpeg" alt="CASAQUE 1">
+    <h3>tablier </h3>
+    </div>
   <div class="case" onclick="openGallery(0)">
     <img src="casaque\bleu roi.jpeg" alt="couleur 1">
     <h3>couleur 1</h3>
@@ -82,21 +86,29 @@
     <img src="casaque\vert claire.jpeg" alt="CASAQUE 1">
     <h3>couleur 5</h3>
   </div>
-  </div><div class="case" onclick="openGallery(4)">
+  </div><div class="case" onclick="openGallery(5)">
     <img src="casaque\rose.jpeg" alt="CASAQUE 1">
     <h3>couleur 6</h3>
   </div>
-  </div><div class="case" onclick="openGallery(4)">
+  </div><div class="case" onclick="openGallery(6)">
     <img src="casaque\militaire.jpeg" alt="CASAQUE 1">
     <h3>couleur 7</h3>
   </div>
-</div><div class="case" onclick="openGallery(4)">
+</div><div class="case" onclick="openGallery(7)">
     <img src="casaque\gris claire.jpeg" alt="CASAQUE 1">
     <h3>couleur8</h3>
   </div>
-  </div><div class="case" onclick="openGallery(4)">
+  </div><div class="case" onclick="openGallery(8)">
     <img src="casaque\gris.jpeg" alt="CASAQUE 1">
     <h3>couleur9</h3>
+  </div>
+  </div><div class="case" onclick="openGallery(10)">
+    <img src="casaque\gris 3adi.jpeg" alt="CASAQUE 9">
+    <h3>couleur9</h3>
+  </div>
+  </div><div class="case" onclick="openGallery(11)">
+    <img src="casaque\marron.jpeg" alt="CASAQUE 11">
+    <h3>couleur10</h3>
   </div>
 </section>
 
@@ -128,25 +140,50 @@ let currentSlide = 0;
 
 const galleries = [
   [
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
-  ]
+    "casaque/bleu roi.jpeg",
+    "casaque/bleu roi2.jpeg"
+  ],
   [
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
-  ]
+    "casaque/bleu ciel.jpeg",
+    "casaque/bleu ciel2.jpeg"
+  ],
   [
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
-  ]
+    "casaque/bordeau.jpeg",
+    "casaque/bordeau3.jpeg"
+    
+  ],
   [
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
-  ]
+    "casaque/vert fonce.jpeg",
+    
+  ],
   [
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
-    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
-  ]
+    "casaque/vert claire.jpeg",
+    
+  ],
+  [
+    "casaque/rose.jpeg",
+    "casaque/rose2.jpeg"
+  ],
+  [
+    "casaque/militaire.jpeg"
+  ],
+  [
+    "casaque/gris claire.jpeg",
+  ],
+  [
+    "casaque/gris.jpeg",
+  ],
+  [
+    "tablier/tablier 1.jpeg",
+    "tablier/tablier 2.jpeg"
+  ],
+  [
+    "casaque/gris 3adi.jpeg",
+  ],
+  [
+    "casaque/marron.jpeg",
+  ],
+
 ];
 
 const modal = document.getElementById("galleryModal");
