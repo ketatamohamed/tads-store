@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Design Anthology</title>
+  <link rel="stylesheet" href="css.css" />
+  <link rel="icon" type="image/png" href="TADS Logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="trousse-page">
+  <div class="cart-button">
+  <a href="cart.html">🛒</a>
+</div>
+  </div>
+
+  <header class="hero-header">
+    <div class="overlay">
+      <h1>Design Anthology</h1>
+      <p>Your go-to dental magazine for the latest trends and insights</p>
+    </div>
+  </header>
+
+  <main class="magazine-content">
+    <section>
+      <h2>badges</h2>
+      <p>This edition features articles on modern orthodontics, implantology, and patient communication strategies.</p>
+    </section>
+    <div class="product-grid"> 
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeC9aiSiE0HFvHd9po93M2kCyxkAgagiVJM0thHwdGWpqiZzw/viewform?usp=header" class="product-card-link">
+      <div class="product-card">
+      <img src="tablier\abc.png" alt="plateau d'examen personnalisé" />
+      <p class="author">Magazine</p>
+      <h3>tablier</h3>
+      <p class="price"><span class="new">37dt</span> <span class="old">40dt</span></p>
+      
+      </div>
+    </a>
+
+
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeC9aiSiE0HFvHd9po93M2kCyxkAgagiVJM0thHwdGWpqiZzw/viewform?usp=header" class="product-card-link">
+      <div class="product-card">
+      <img src="casaque\bordeau.jpeg" alt="casaque\bordeau" />
+      <p class="author">Magazine</p>
+      <h3>casaque</h3>
+      <p class="price"><span class="new">55dt</span> <span class="old">60dt</span></p>
+      
+      </div>
+    </a>
+</div>
+  </div>
+  </div>
+ <span class="close" onclick="closeGallery()">×</span>
+
+  <div class="slider">
+
+    <button class="nav prev" onclick="moveSlide(-1)">‹</button>
+
+    <div class="slides"></div>
+
+    <button class="nav next" onclick="moveSlide(1)">›</button>
+
+  </div>
+
+</div>
+ <!-- CASE -->
+  <div class="case" onclick="openGallery(0)">
+    <img src="casaque\bleu roi.jpeg" alt="couleur 1">
+    <h3>couleur 1</h3>
+  </div>
+  <div class="case" onclick="openGallery(1)">
+    <img src="casaque\bleu ciel.jpeg" alt="CASAQUE 1">
+    <h3>couleur 2</h3>
+  </div>
+  <div class="case" onclick="openGallery(2)">
+    <img src="casaque\bordeau.jpeg" alt="CASAQUE 1">
+    <h3>couleur 3</h3>
+  </div><div class="case" onclick="openGallery(3)">
+    <img src="casaque\vert fonce.jpeg" alt="CASAQUE 1">
+    <h3>couleur 4</h3>
+  </div><div class="case" onclick="openGallery(4)">
+    <img src="casaque\vert claire.jpeg" alt="CASAQUE 1">
+    <h3>couleur 5</h3>
+  </div>
+  </div><div class="case" onclick="openGallery(4)">
+    <img src="casaque\rose.jpeg" alt="CASAQUE 1">
+    <h3>couleur 6</h3>
+  </div>
+  </div><div class="case" onclick="openGallery(4)">
+    <img src="casaque\militaire.jpeg" alt="CASAQUE 1">
+    <h3>couleur 7</h3>
+  </div>
+</div><div class="case" onclick="openGallery(4)">
+    <img src="casaque\gris claire.jpeg" alt="CASAQUE 1">
+    <h3>couleur8</h3>
+  </div>
+  </div><div class="case" onclick="openGallery(4)">
+    <img src="casaque\gris.jpeg" alt="CASAQUE 1">
+    <h3>couleur9</h3>
+  </div>
+</section>
+
+
+<!-- GALLERY MODAL -->
+<div class="modal" id="galleryModal">
+
+  <!-- CLOSE BUTTON -->
+  <span class="close" onclick="closeGallery()">×</span>
+
+  <!-- SLIDER -->
+  <div class="slider">
+
+    <!-- PREVIOUS -->
+    <button class="nav prev" onclick="moveSlide(-1)">‹</button>
+
+    <!-- IMAGES ARE INSERTED HERE BY JS -->
+    <div class="slides"></div>
+
+    <!-- NEXT -->
+    <button class="nav next" onclick="moveSlide(1)">›</button>
+
+  </div>
+
+</div>
+
+<script>
+let currentSlide = 0;
+
+const galleries = [
+  [
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
+  ]
+  [
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
+  ]
+  [
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
+  ]
+  [
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
+  ]
+  [
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM.jpeg",
+    "casaque/WhatsApp Image 2026-07-31 at 4.54.37 PM (7).jpeg"
+  ]
+];
+
+const modal = document.getElementById("galleryModal");
+const slidesContainer = modal.querySelector(".slides");
+
+function openGallery(index) {
+  slidesContainer.innerHTML = "";
+  currentSlide = 0;
+
+  galleries[index].forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    slidesContainer.appendChild(img);
+  });
+
+  modal.classList.add("show");
+  updateSlide();
+}
+
+function closeGallery() {
+  modal.classList.remove("show");
+}
+
+function moveSlide(direction) {
+  const total = slidesContainer.children.length;
+
+  currentSlide = (currentSlide + direction + total) % total;
+
+  updateSlide();
+}
+
+function updateSlide() {
+  slidesContainer.style.transform =
+    `translateX(-${currentSlide * 100}%)`;
+}
+</script>
+
+
+<script type="module" src="cartcreation.js"></script>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h4>Faculté de Médecine Dentaire de Monastir</h4>
+      <p>5000 Monastir, Tunisie</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/"><img src="facebook.png" alt="Facebook"></a>
+        <a href="instagram.com"><img src="instagram.jpg" alt="Instagram"></a>
+      </div>
+    </div>
+    <div>
+      <h4>Contactez-nous</h4>
+     <p><a href="tel:+21651666331">+216 51 666 331</a></p>
+      <button class="contact-btn" onclick="window.open('https://wa.me/21651666331', '_blank')">
+  Contactez-nous
+</button>
+
+    </div>
+    <div>
+      <h4>Useful links</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="https://tads.com.tn/a-propos/">A Propos</a></li>
+        <li><a href="https://tads.com.tn/contact/">Contact</a></li>
+        <li><a href="https://tads.com.tn/nos-comites/">Nos Comités</a></li>
+        <li><a href="https://tads.com.tn/a-propos/#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IADS | All Rights Reserved </p>
+  </div>
+</footer>
+</section>
+
+
+</body>
+</html>
